@@ -3,6 +3,7 @@ ext {
      * Sdk and tools---必须
      */
     android = [
+
             compileSdkVersion: 28,//编译的SDK版本
             buildToolsVersion: "29.0.2",//编译的Tools版本
             minSdkVersion    : 23, //支持的最低版本
