@@ -47,7 +47,6 @@ android {
         abortOnError false//lint时候终止错误上报,防止编译的时候莫名的失败
         checkReleaseBuilds false//打包release版本的时候进行检测
     }
-
     // Butterknife requires Java 8.
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
