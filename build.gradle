@@ -58,6 +58,7 @@ dependencies {//依赖
     implementation fileTree(include: ['*.jar'], dir: 'libs')//编译lib目录下的.jar文件
     implementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
+        exclude module: 'annotations'
     })
     /**
      * 配置android-apt
@@ -79,7 +80,7 @@ dependencies {//依赖
     /**
      *  配置javax.annotation包
      */
-    api rootProject.ext.dependencies.javaxAannotation// 必须配置，缺少javax.annotation包
+    //api rootProject.ext.dependencies.javaxAannotation// 必须配置，缺少javax.annotation包
     /**
      *  配置Android LogCat 工具类：KLog
      *  依赖项目也能直接引用
