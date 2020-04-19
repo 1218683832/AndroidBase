@@ -1,0 +1,148 @@
+apply plugin: 'com.android.library' //说明module的类型，com.android.application为程序，com.android.library为库
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion //编译的SDK版本
+    buildToolsVersion rootProject.ext.android.buildToolsVersion //编译的Tools版本
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion //支持的最低版本
+        targetSdkVersion rootProject.ext.android.targetSdkVersion //支持的目标版本
+        versionCode rootProject.ext.android.versionCode //版本号
+        versionName rootProject.ext.android.versionName //版本名
+        multiDexEnabled rootProject.ext.android.multiDexEnabled //multiDex突破超过65535方法数
+        archivesBaseName = "androidbase-$versionName"//指定打包成Jar文件时候的文件名称
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    /*compileOptions {//在这里你可以进行 Java 的版本配置，以便使用对应版本的一些新特性
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }*/
+
+    buildTypes {//build类型,除了默认的构建版本，还可以创建自己的构建版本
+        release {//release版本的配置
+            zipAlignEnabled true//是否支持zip
+            //shrinkResources true//移除无用的resource文件
+            minifyEnabled true//混淆开启
+            debuggable false//是否支持调试
+            jniDebuggable false//关闭jni调试
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro' //指定混淆规则文件
+            //signingConfig signingConfigs.release//设置签名信息
+        }
+        debug {//调试
+            zipAlignEnabled true
+            //shrinkResources true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+            jniDebuggable true
+            //signingConfig signingConfigs.release//设置签名信息
+        }
+    }
+
+    lintOptions {//程序在编译的时候会检查lint，有任何错误提示会停止build，我们可以关闭这个开关
+        abortOnError false//lint时候终止错误上报,防止编译的时候莫名的失败
+        checkReleaseBuilds false//打包release版本的时候进行检测
+    }
+
+    /*sourceSets {//目录指向配置，默认的一些文件路径的配置
+        main {
+            manifest.srcFile 'AndroidManifest.xml'//指定AndroidManifest文件
+            java.srcDirs = ['src']//指定source目录
+            resources.srcDirs = ['src']//指定source目录
+            aidl.srcDirs = ['src']//指定source目录
+            renderscript.srcDirs = ['src']//指定source目录
+            res.srcDirs = ['res']//指定资源目录
+            assets.srcDirs = ['assets']//指定assets目录
+            jniLibs.srcDirs = ['libs'] //指定jni库
+        }
+        instrumentTest.setRoot('tests')
+        debug.setRoot('build-types/debug')//指定debug模式的路径
+        release.setRoot('build-types/release')//指定release模式的路径
+    }*/
+
+     /*aaptOptions{//关闭Android Studio的PNG合法性检查，但会导致apk包变大
+      cruncherEnabled false
+      useNewCruncher false
+    }*/
+
+    /*signingConfigs {//签名配置
+        release {//发布版签名配置
+            storeFile file("xxx/fk.keystore")//密钥文件路径
+            storePassword "123"//密钥文件密码
+            keyAlias "fk"//key别名
+            keyPassword "123"//key密码
+        }
+        debug {//debug版签名配置
+            storeFile file("xxx/fk.keystore")
+            storePassword "123"
+            keyAlias "fk"
+            keyPassword "123"
+        }
+    }*/
+
+    /*productFlavors {
+        //在这里你可以设置你的产品发布的一些东西，
+        //比如你现在一共软件需要发布到d多少个不同渠道，
+        //且不同渠道中的包名不同，那么可以在此进行配置；
+        //甚至可以设置不同的 AndroidManifest.xml 文件。
+        //所谓ProductFlavors其实就是可定义的产品特性，不仅仅用于多渠道打包
+        //配合 manifest merger 使用的时候就可以达成在一次编译
+        //过程中产生多个具有自己特性配置的版本。
+        IQIYI{//爱奇艺应用市场
+            packageName='com.example.qiujuer.application1'
+            manifest.srcFile  'exampleapk/AndroidManifest1.xml'
+            manifestPlaceholders = [
+                    UMENG_CHANNEL_VALUE: "IQIYI App Store",// 在友盟上的渠道名称
+                    SCBC_CHANNEL_VALUE: "IQIYI App Store",// 自己服务器更新App时依据的渠道名称(名称与友盟上的渠道名称一样)
+                    TV_CLIENT_VALUE: "SCBC",// 表示这个渠道的App所属的客户
+                    WITH_AD_VALUE: "YES",// 表示这个渠道的App是否需要当贝的广告服务
+                    USER_TMediaPlayer_VALUE: "NO"]// 表示安装这个渠道的App的电视是否使用了TMediaPlayer(目前只知道MS6488和MT5655有用到)
+        }
+    }*/
+
+    //打包防渠道代码重复处理
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [
+                UMENG_CHANNEL_VALUE:name,
+                SCBC_CHANNEL_VALUE:name,
+                TV_CLIENT_VALUE:name,
+                USER_TMediaPlayer_VALUE:name
+        ]
+    }
+}
+
+dependencies {//依赖
+    compile fileTree(include: ['*.jar'], dir: 'libs')//编译lib目录下的.jar文件
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    /**
+     * 配置android-apt
+     */
+    annotationProcessor rootProject.ext.annotationProcessors.androidPlugin
+    compile rootProject.ext.dependencies.appcompatV7
+    compile rootProject.ext.dependencies.supportV4
+    compile rootProject.ext.dependencies.recyclerviewV7
+    compile rootProject.ext.dependencies.design
+    compile rootProject.ext.dependencies.cardviewV7
+    compile rootProject.ext.dependencies.constraintLayout
+    testCompile rootProject.ext.dependencies.junit
+    /**
+     *  配置Butterknife
+     */
+    compile rootProject.ext.dependencies.butterknife
+    compile rootProject.ext.dependencies.butterknifeCompiler//必须要有，不然就会出现控件绑定和点击均无效
+    /**
+     *  配置javax.annotation包
+     */
+    compile rootProject.ext.dependencies.javaxAannotation//必须配置，缺少javax.annotation包
+    /**
+     *  配置Android LogCat 工具类：KLog
+     */
+    compile rootProject.ext.dependencies.klog
+}
+
+
+
+
+
