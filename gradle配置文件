@@ -4,6 +4,7 @@ android {
     buildToolsVersion rootProject.ext.android.buildToolsVersion //编译的Tools版本
 
     defaultConfig {
+
         minSdkVersion rootProject.ext.android.minSdkVersion //支持的最低版本
         targetSdkVersion rootProject.ext.android.targetSdkVersion //支持的目标版本
         versionCode rootProject.ext.android.versionCode //版本号
