@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 沉浸式变色状态栏样式 -->
+<resources>
+    <!-- 适用于app中没有导航栏，且整体的背景是一张图片的界面 -->
+    <style name="ImageTranslucentTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
+    </style>
+
+    <!-- 适用于app中导航栏(谷歌已经建议用toolbar取代actionbar)颜色为纯色的界面 -->
+    <style name="ColorTranslucentTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
+    </style>
+</resources>

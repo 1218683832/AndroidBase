@@ -1,0 +1,89 @@
+apply plugin: 'com.android.library'//说明module的类型，com.android.application为程序，com.android.library为库
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion //编译的SDK版本
+    buildToolsVersion rootProject.ext.android.buildToolsVersion //编译的Tools版本
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion //支持的最低版本
+        targetSdkVersion rootProject.ext.android.targetSdkVersion //支持的目标版本
+        versionCode rootProject.ext.android.versionCode //版本号
+        versionName rootProject.ext.android.versionName //版本名
+        multiDexEnabled rootProject.ext.android.multiDexEnabled //multiDex突破超过65535方法数
+        archivesBaseName = "androidbase-$versionName"//指定打包成Jar文件时候的文件名称
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+    }
+
+    buildTypes {//build类型,除了默认的构建版本，还可以创建自己的构建版本
+        release {//release版本的配置
+            zipAlignEnabled true//是否支持zip
+            //shrinkResources true//移除无用的resource文件
+            minifyEnabled true//混淆开启
+            debuggable false//是否支持调试
+            jniDebuggable false//关闭jni调试
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //指定混淆规则文件
+            //signingConfig signingConfigs.release//设置签名信息
+        }
+        debug {//调试
+            zipAlignEnabled true
+            //shrinkResources true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+            jniDebuggable true
+            //signingConfig signingConfigs.release//设置签名信息
+        }
+    }
+
+    lintOptions {//程序在编译的时候会检查lint，有任何错误提示会停止build，我们可以关闭这个开关
+        abortOnError false//lint时候终止错误上报,防止编译的时候莫名的失败
+        checkReleaseBuilds false//打包release版本的时候进行检测
+    }
+
+    // Butterknife requires Java 8.
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {//依赖
+    implementation fileTree(include: ['*.jar'], dir: 'libs')//编译lib目录下的.jar文件
+    implementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    /**
+     * 配置android-apt
+     */
+    annotationProcessor rootProject.ext.annotationProcessors.androidPlugin
+    implementation rootProject.ext.dependencies.appcompatV7
+    implementation rootProject.ext.dependencies.supportV4
+    implementation rootProject.ext.dependencies.recyclerviewV7
+    implementation rootProject.ext.dependencies.design
+    implementation rootProject.ext.dependencies.cardviewV7
+    implementation rootProject.ext.dependencies.constraintLayout
+    testImplementation rootProject.ext.dependencies.junit
+    /**
+     *  配置Butterknife
+     *  依赖项目也能直接引用
+     */
+    api rootProject.ext.dependencies.butterknife
+    api rootProject.ext.dependencies.butterknifeCompiler// 必须要有，不然就会出现控件绑定和点击均无效
+    /**
+     *  配置javax.annotation包
+     */
+    api rootProject.ext.dependencies.javaxAannotation// 必须配置，缺少javax.annotation包
+    /**
+     *  配置Android LogCat 工具类：KLog
+     *  依赖项目也能直接引用
+     */
+    api rootProject.ext.dependencies.klog
+}

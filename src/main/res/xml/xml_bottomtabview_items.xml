@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items>
+    <!--<item subject="首页" icon_normal="@mipmap/icon_bottom_tab_home_normal" icon_selected="@mipmap/icon_bottom_tab_home_selected"></item>-->
+    <!--<item subject="热点" icon_normal="@mipmap/icon_bottom_tab_hot_normal" icon_selected="@mipmap/icon_bottom_tab_hot_selected"></item>-->
+    <!--<item subject="VIP会员" icon_normal="@mipmap/icon_bottom_tab_vip_normal" icon_selected="@mipmap/icon_bottom_tab_vip_selected"></item>-->
+    <!--<item subject="发现" icon_normal="@mipmap/icon_bottom_tab_find_normal" icon_selected="@mipmap/icon_bottom_tab_find_selected"></item>-->
+    <!--<item subject="我的" icon_normal="@mipmap/icon_bottom_tab_personal_normal" icon_selected="@mipmap/icon_bottom_tab_personal_selected"></item>-->
+</items>

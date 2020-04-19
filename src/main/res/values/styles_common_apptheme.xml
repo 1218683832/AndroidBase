@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- App主题样式 -->
+<resources>
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+
+    <!-- 全屏样式 -->
+    <!-- 状态栏、ActionBar、导航栏都隐藏只显示内容主体,下滑状态栏出现、上滑导航栏出现 -->
+    <style name="FullWindowTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- 启动页样式 -->
+    <!-- 解决Android启动APP时黑屏白屏的问题：
+        黑屏或者白屏这里并不是不正常，而是还没加载到布局文件，就已经显示了window窗口背景，黑屏白屏就是window窗口背景。 -->
+    <style name="LaunchAppTheme" parent="FullWindowTheme">
+        <item name="android:windowBackground">@color/color_ee82ee_violet</item>
+    </style>
+
+</resources>

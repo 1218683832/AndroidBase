@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 这个是按下去的时候item显示背景色 -->;
+    <item android:drawable="@color/color_E5E5E5_gray" android:state_pressed="true"></item>
+    <!-- 这个是默认的item背景色，设为了透明 -->
+    <item android:drawable="@android:color/transparent" android:state_pressed="false"></item>
+</selector>

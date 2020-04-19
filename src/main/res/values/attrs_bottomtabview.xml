@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BottomTabView">
+        <!-- 配置的Item数据xml资源id xml_bottomtabview_items.xml-->
+        <attr name="item_xml" format="reference" />
+        <!-- item文字默认颜色 -->
+        <attr name="item_text_color_normal" format="color|reference" />
+        <!-- item文字选择时颜色 -->
+        <attr name="item_text_color_selected" format="color|reference" />
+        <!-- item文字大小 -->
+        <attr name="item_text_size" format="dimension|reference" />
+        <!-- item icon宽 -->
+        <attr name="item_icon_width" format="dimension|reference" />
+        <!-- item icon高 -->
+        <attr name="item_icon_height" format="dimension|reference" />
+        <!-- item icon距离顶部距离 -->
+        <attr name="item_icon_magre_top" format="dimension|reference" />
+        <!-- item icon距离底部文字距离 -->
+        <attr name="item_icon_magre_bottom" format="dimension|reference" />
+        <!-- item 文字距离底部距离 -->
+        <attr name="item_text_magre_bottom" format="dimension|reference" />
+    </declare-styleable>
+</resources>

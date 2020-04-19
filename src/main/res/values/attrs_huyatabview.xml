@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HuyaTabView">
+        <!-- 每个Item之间的间隔 -->
+        <attr name="itemSpace" format="dimension|reference" />
+        <!-- 几个Item数目后可移动位置 -->
+        <attr name="fixedItem" format="integer"/>
+        <!-- 配置的Item数据xml资源id xml_huyatabview_items.xml -->
+        <attr name="items_xml" format="reference"/>
+    </declare-styleable>
+</resources>

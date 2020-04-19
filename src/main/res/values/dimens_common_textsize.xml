@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 文本大小 -->
+    <dimen name="text_112sp">112sp</dimen><!-- 超大号文字 -->
+    <dimen name="text_56sp">56sp</dimen><!-- 超大号文字 -->
+    <dimen name="text_45sp">45sp</dimen><!-- 超大号文字 -->
+    <dimen name="text_34sp">34sp</dimen><!-- 超大号文字 -->
+    <dimen name="text_32sp">32sp</dimen>
+    <dimen name="text_30sp">30sp</dimen>
+    <dimen name="text_28sp">28sp</dimen>
+    <dimen name="text_26sp">26sp</dimen>
+    <dimen name="text_25sp">25sp</dimen>
+    <dimen name="text_24sp">24sp</dimen><!-- 大标题 -->
+    <dimen name="text_23sp">23sp</dimen>
+    <dimen name="text_22sp">22sp</dimen>
+    <dimen name="text_21sp">21sp</dimen>
+    <dimen name="text_20sp">20sp</dimen><!-- Appbar文字 -->
+    <dimen name="text_19sp">19sp</dimen>
+    <dimen name="text_18sp">18sp</dimen>
+    <dimen name="text_17sp">17sp</dimen>
+    <dimen name="text_16sp">16sp</dimen><!-- 小标题 -->
+    <dimen name="text_15sp">15sp</dimen>
+    <dimen name="text_14sp">14sp</dimen><!-- 正文/按钮文字 -->
+    <dimen name="text_13sp">13sp</dimen>
+    <dimen name="text_12sp">12sp</dimen><!-- 小字提示 -->
+    <dimen name="text_11sp">11sp</dimen><!-- 小字提示 -->
+    <dimen name="text_10sp">10sp</dimen><!-- 小字提示 -->
+</resources>

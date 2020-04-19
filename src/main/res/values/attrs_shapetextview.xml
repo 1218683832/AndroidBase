@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources><!--自定义矩形边框的TextView-->
+    <declare-styleable name="ShapeTextView">
+        <!--是否使用Selector选择器-->
+        <attr name="openSelector" format="boolean" />
+        <!--填充色-->
+        <attr name="solidColor" format="color" />
+        <!--边框色-->
+        <attr name="strokeColor" format="color" />
+        <!--按下填充色-->
+        <attr name="solidTouchColor" format="color" />
+        <!--按下填充色-->
+        <attr name="textTouchColor" format="color" />
+        <!--按下边框色-->
+        <attr name="strokeTouchColor" format="color" />
+        <!--边框宽度-->
+        <attr name="strokeWidth" format="dimension" />
+        <!--圆角弧度-->
+        <attr name="radius" format="dimension" />
+        <!--四个角的圆角弧度-->
+        <attr name="topLeftRadius" format="dimension" />
+        <attr name="topRightRadius" format="dimension" />
+        <attr name="bottomLeftRadius" format="dimension" />
+        <attr name="bottomRightRadius" format="dimension" />
+        <!--虚线边框宽度-->
+        <attr name="dashWidth" format="dimension" />
+        <!--虚线边框间隙-->
+        <attr name="dashGap" format="dimension" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EasyRecyclerView">
+        <!-- 布局类型 -->
+        <attr name="recycle_layout_type" format="enum">
+            <enum name="linearLayout" value="0" />
+            <enum name="gridLayout" value="1" />
+            <enum name="staggeredGridLayout" value="2" />
+        </attr>
+        <!-- 布局方向 -->
+        <attr name="recycle_orientation" format="enum" >
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <!-- 布局列数 -->
+        <attr name="recycle_columnNum" format="integer" />
+        <!-- 分割线高或宽大小 -->
+        <attr name="recycle_dividerSize" format="reference|dimension" />
+        <!-- 分割线颜色 -->
+        <attr name="recycle_dividerColor" format="reference|color" />
+        <!-- 分割线Drawable -->
+        <attr name="recycle_dividerDrawable" format="reference" />
+    </declare-styleable>
+</resources>
