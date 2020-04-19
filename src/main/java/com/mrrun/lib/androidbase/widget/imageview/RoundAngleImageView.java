@@ -77,16 +77,16 @@ public class RoundAngleImageView extends ImageView {
 
     private void initCustomAttributes(AttributeSet attrs) {
         if (attrs != null) {
-            TypedArray typedArray = mContext.obtainStyledAttributes(attrs, R.styleable.RoundAngleImageView);
-            mRadius = typedArray.getDimensionPixelSize(R.styleable.RoundAngleImageView_radius, 0);
+            TypedArray typedArray = mContext.obtainStyledAttributes(attrs, R.styleable.RoundAngleImageViewMr);
+            mRadius = typedArray.getDimensionPixelSize(R.styleable.RoundAngleImageViewMr_mr_radius, 0);
             if (mRadius > 0) {
                 mBottomLeftRadius = mBottomRightRadius = mTopRightRadius = mTopLeftRadius = mRadius;
             } else {
-                mBottomLeftRadius = typedArray.getDimensionPixelSize(R.styleable.RoundAngleImageView_bottomLeftRadius, 0);
-                mBottomRightRadius = typedArray.getDimensionPixelSize(R.styleable.RoundAngleImageView_bottomRightRadius, 0);
-                mTopLeftRadius = typedArray.getDimensionPixelSize(R.styleable.RoundAngleImageView_topLeftRadius, 0);
-                mTopRightRadius = typedArray.getDimensionPixelSize(R.styleable.RoundAngleImageView_topRightRadius, 0);
-                mBottomLeftRadius = typedArray.getDimensionPixelSize(R.styleable.RoundAngleImageView_bottomLeftRadius, 0);
+                mBottomLeftRadius = typedArray.getDimensionPixelSize(R.styleable.RoundAngleImageViewMr_mr_bottomLeftRadius, 0);
+                mBottomRightRadius = typedArray.getDimensionPixelSize(R.styleable.RoundAngleImageViewMr_mr_bottomRightRadius, 0);
+                mTopLeftRadius = typedArray.getDimensionPixelSize(R.styleable.RoundAngleImageViewMr_mr_topLeftRadius, 0);
+                mTopRightRadius = typedArray.getDimensionPixelSize(R.styleable.RoundAngleImageViewMr_mr_topRightRadius, 0);
+                mBottomLeftRadius = typedArray.getDimensionPixelSize(R.styleable.RoundAngleImageViewMr_mr_bottomLeftRadius, 0);
             }
             typedArray.recycle();
         } else {

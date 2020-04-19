@@ -18,12 +18,12 @@
 <resources>
     <!-- 实现圆角ImageView
     可设置上下左右的圆角值 -->
-    <declare-styleable name="RoundAngleImageView">
-        <attr name="bottomLeftRadius" format="dimension" />
-        <attr name="bottomRightRadius" format="dimension" />
-        <attr name="topLeftRadius" format="dimension"/>
-        <attr name="topRightRadius" format="dimension"/>
-        <attr name="radius" format="dimension">
+    <declare-styleable name="RoundAngleImageViewMr">
+        <attr name="mr_bottomLeftRadius" format="dimension" />
+        <attr name="mr_bottomRightRadius" format="dimension" />
+        <attr name="mr_topLeftRadius" format="dimension"/>
+        <attr name="mr_topRightRadius" format="dimension"/>
+        <attr name="mr_radius" format="dimension">
         </attr>
     </declare-styleable>
 </resources>
